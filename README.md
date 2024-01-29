@@ -23,3 +23,15 @@
 - Columns that should never be null must have a not_null schema test.
 - Columns that should be unique must have a unique schema test.
 - Where possible, use schema tests from the dbt_utils or dbt_expectations packages to perform extra verification.
+
+## Project 1
+
+[Commit link](https://github.com/bmeiners/course_advanced_dbt/commit/2c417e2002303d2cbf2ddf1a6393d5e3a8eb3d10)
+
+### Task 2:
+ I chose the subscriptions table in the source_bingeflix.yml to add the doc blocks.
+
+### Task 3:
+ 1. Solved missing documentarion for fct_events table. Added a primary key test for the table.
+ 2. Added documentation for the ads_platform schema and table.
+ 3. Added a exception when reasoning about the fanout problem, the uses of this model seem reasonable.
