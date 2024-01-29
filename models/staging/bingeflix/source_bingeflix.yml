@@ -74,15 +74,15 @@ sources:
               - not_null
 
           - name: starts_at
-            description: When the subscription started.
+            description: '{{ doc("subscription_starts_at") }}'
             tests:
               - not_null
 
           - name: ends_at
-            description: When the subscription ends. This value is NULL if the subscription is active.
+            description: '{{ doc("subscription_ends_at") }}' 
 
           - name: subscription_id
-            description: The unique identifier for the subscription.
+            description: '{{ doc("subscription_id") }}'
             tests:
               - not_null
               - unique
