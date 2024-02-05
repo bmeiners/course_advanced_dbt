@@ -8,6 +8,7 @@ dbt-core = "==1.7.4"
 dbt-snowflake = "==1.7.1"
 sqlfluff = "*"
 sqlfluff-templater-dbt = "*"
+pre-commit = "==4.4.0"
 
 [requires]
 python_version = "3.11"
