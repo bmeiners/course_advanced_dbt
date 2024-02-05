@@ -25,6 +25,9 @@ models:
       - name: starts_at
         description: '{{ doc("subscription_starts_at") }}'
 
+      - name: avg_3_periods_mrr
+        description: Rolling average for 3 months of MRR
+
       - name: ends_at
         description: '{{ doc("subscription_ends_at") }}' 
       - name: plan_name

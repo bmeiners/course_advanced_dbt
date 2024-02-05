@@ -1,0 +1,27 @@
+macros:
+  - name: rolling_average_periods
+    description: This macro calculates the rolling average for a number of periods
+    arguments:
+      - name: column
+        type: number
+        description: Amount to have its rolling average calculated
+      - name: partition_by
+        description: Column to use to separate in partitions 
+      - name: periods
+        type: number
+        description: Amount of periods to be used in the rolling average. Default is 7.
+      - name: order_by
+        type: timestamp
+        description: Timestamp column to use to order the rolling average calculation. Default is created_at
+
+  - name: calculate_end_month
+    description: > 
+      For users that cancel in the first month, set their end_month to next month because the subscription remains active until the end of the first month.
+      For users who haven't ended their subscription yet (end_month is NULL) set the end_month to one month from the current date (these rows will be removed from the final CTE)
+    arguments:  
+      - name: start_month
+        type: date
+        description: Month that subscription started
+      - name: end_month
+        type: date
+        description: Month that subscription ended

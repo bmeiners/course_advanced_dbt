@@ -44,14 +44,7 @@ subscription_periods AS (
         starts_at,
         ends_at,
         start_month,
-
-        -- For users that cancel in the first month, set their end_month to next month because the subscription remains active until the end of the first month
-        -- For users who haven't ended their subscription yet (end_month is NULL) set the end_month to one month from the current date (these rows will be removed from the final CTE)
-        CASE
-            WHEN start_month = end_month THEN DATEADD('month', 1, end_month)
-            WHEN end_month IS NULL THEN DATE(DATEADD('month', 1, DATE_TRUNC('month', CURRENT_DATE)))
-            ELSE end_month
-        END AS end_month
+        {{ calculate_end_month() }}
     FROM
         monthly_subscriptions
 ),
@@ -176,6 +169,7 @@ final AS (
         subscription_periods.ends_at,
         subscription_periods.plan_name,
         mrr AS mrr_amount,
+        {{- rolling_average_periods('mrr', 'mrr_with_changes.user_id', periods=3, order_by='date_month') -}} ,
         mrr_change,
         LEAST(mrr, previous_month_mrr_amount) AS retained_mrr_amount,
         previous_month_mrr_amount,
