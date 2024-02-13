@@ -17,6 +17,7 @@
 - Columns that should be unique must have a unique schema test.
 
 #### Models
+- Staging models do not test the same columns tested in sources, except for primary keys.
 - The primary key column must have not_null and unique schema tests.
 - All boolean columns must have an accepted_values schema test. The accepted values are true and false.
 - Columns that contain category values must have an accepted_values schema test.
