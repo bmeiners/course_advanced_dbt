@@ -40,6 +40,16 @@ models:
         +schema: product
 
 seeds:
+  unit_testing:
+    +schema: unit_testing
+    +tags: unit_testing
+    unit_int_dates:
+    +column_types:
+      calendar_date: DATE
+      date_week: DATE
+      date_month: DATE
+      date_year: DATE
+
   dbt_project_evaluator:
     dbt_project_evaluator_exceptions:
       +enabled: false
